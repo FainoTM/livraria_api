@@ -12,4 +12,14 @@ class Book {
     required this.price,
     required this.publisher,
   });
+
+  factory Book.fromJson(Map<String, dynamic> json) {
+    return Book(
+      title: json['title'] ?? '',
+      author: json['author'] ?? '',
+      description: json['description'] ?? '',
+      price: json['price'] ?? '0.00',
+      publisher: json['publisher'] ?? '',
+    );
+  }
 }
