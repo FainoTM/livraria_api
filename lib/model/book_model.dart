@@ -1,25 +1,24 @@
 class Book {
   final String title;
   final String description;
-  final String author;
   final String price;
-  final String publisher;
+  final String image;
+  final String buy;
 
   Book({
     required this.title,
-    required this.author,
     required this.description,
     required this.price,
-    required this.publisher,
+    required this.image,
+    required this.buy,
   });
 
   factory Book.fromJson(Map<String, dynamic> json) {
     return Book(
-      title: json['title'] ?? '',
-      author: json['author'] ?? '',
-      description: json['description'] ?? '',
-      price: json['price'] ?? '0.00',
-      publisher: json['publisher'] ?? '',
-    );
+        title: json['title'] as String,
+        description: json['description'] ?? 'Sem descrição',
+        price: json['price'] != null ? '\$${json['price']}' : 'Sem preço',
+        image: json['book_image'] ?? '',
+        buy: json['amazon_product_url'] ?? '');
   }
 }
