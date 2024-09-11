@@ -9,10 +9,10 @@ class DetailPage extends StatelessWidget {
 
   void _launchURL() async {
     final Uri url = Uri.parse(book.buy);
-    //if (await canLaunchUrl(url)) {
+    //  if (await canLaunchUrl(url)) {
     await launchUrl(url, mode: LaunchMode.externalApplication);
-    // } else {
-    //   throw 'Não foi possível abrir o URL: $url';
+    //  } else {
+    //    throw 'Não foi possível abrir o URL: $url';
     // }
   }
 
@@ -39,6 +39,12 @@ class DetailPage extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Text(
+                book.author,
+                style: TextStyle(fontSize: 18),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 10),
+              Text(
                 book.description,
                 style: TextStyle(fontSize: 16),
                 textAlign: TextAlign.center,
@@ -50,8 +56,17 @@ class DetailPage extends StatelessWidget {
               ),
               SizedBox(height: 20),
               ElevatedButton(
+                style: ButtonStyle(
+                  fixedSize: MaterialStatePropertyAll<Size>(Size(300, 50)),
+                ),
                 onPressed: _launchURL, // Aciona a função para abrir o URL
-                child: Text('Comprar na Amazon'),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.shopping_cart_rounded),
+                    Text(' Comprar na Amazon'),
+                  ],
+                ),
               ),
             ],
           ),

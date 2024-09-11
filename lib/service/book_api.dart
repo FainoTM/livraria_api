@@ -3,7 +3,7 @@ import 'package:livraria_app_api/model/book_model.dart';
 
 class BookApi {
   final Dio dio = Dio();
-  final String apiKey = '';
+  final String apiKey = 'ffXDPpMWGZuYfC3Q3FzyNGG5PiCBVWod';
 
   Future<List<String>> getLists() async {
     try {

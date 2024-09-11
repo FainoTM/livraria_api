@@ -3,6 +3,7 @@ class Book {
   final String description;
   final String price;
   final String image;
+  final String author;
   final String buy;
 
   Book({
@@ -10,6 +11,7 @@ class Book {
     required this.description,
     required this.price,
     required this.image,
+    required this.author,
     required this.buy,
   });
 
@@ -19,6 +21,7 @@ class Book {
         description: json['description'] ?? 'Sem descrição',
         price: json['price'] != null ? '\$${json['price']}' : 'Sem preço',
         image: json['book_image'] ?? '',
-        buy: json['amazon_product_url'] ?? '');
+        buy: json['amazon_product_url'] ?? '',
+        author: json['author'] ?? '');
   }
 }

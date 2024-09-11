@@ -11,8 +11,12 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Livraria'),
-        backgroundColor: Colors.lightGreen,
+        title: Text(
+          'Livraria The New York Times',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.redAccent,
+        toolbarHeight: 100,
         centerTitle: true,
       ),
       body: Obx(() {
@@ -58,21 +62,20 @@ class HomePage extends StatelessWidget {
                         Get.to(() => DetailPage(book: book));
                       },
                       child: Padding(
-                        padding: const EdgeInsets.all(6.0),
-                        child: Container(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Card(
                           margin:
                               EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey, width: 1),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
+                          elevation: 8,
+                          shadowColor: Colors.black,
                           child: ListTile(
                             title: Text(book.title),
                             subtitle: Text(book.description),
-                            trailing: Text(book.price),
                             leading: book.image.isNotEmpty
                                 ? Image.network(
                                     book.image,
+                                    width: 50,
+                                    fit: BoxFit.fill,
                                   )
                                 : Icon(Icons.image_not_supported),
                           ),
